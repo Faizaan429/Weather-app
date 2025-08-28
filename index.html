@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <h1>🌤️ Weather Dashboard</h1>
+    <button id="theme-toggle">🌙</button>
+  </header>
+
+  <!-- Search Section -->
+  <section class="search">
+    <input type="text" id="city-input" placeholder="Enter city name...">
+    <button id="search-btn">Search</button>
+  </section>
+
+  <!-- Current Weather -->
+  <section class="weather-card" id="weather-card">
+    <h2 id="city-name">City Name</h2>
+    <p id="temperature">-- °C</p>
+    <p id="condition">Condition</p>
+    <div class="extra">
+      <p>💧 Humidity: <span id="humidity">--%</span></p>
+      <p>🌬️ Wind: <span id="wind">-- km/h</span></p>
+    </div>
+  </section>
+
+  <!-- Forecast -->
+  <section class="forecast" id="forecast">
+    <h3>5-Day Forecast</h3>
+    <div class="forecast-cards" id="forecast-cards">
+      <!-- Cards will be inserted with JS -->
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
