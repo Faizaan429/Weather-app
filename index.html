@@ -5,38 +5,126 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Weather Dashboard</title>
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-  <!-- Header -->
-  <header>
-    <h1>🌤️ Weather Dashboard</h1>
-    <button id="theme-toggle">🌙</button>
-  </header>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-content">
+        <h1 class="logo">
+          <i class="fas fa-cloud-sun"></i>
+          Weather Dashboard
+        </h1>
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+          <i class="fas fa-moon"></i>
+        </button>
+      </div>
+    </header>
 
-  <!-- Search Section -->
-  <section class="search">
-    <input type="text" id="city-input" placeholder="Enter city name...">
-    <button id="search-btn">Search</button>
-  </section>
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Search Section -->
+      <section class="search-section">
+        <div class="search-container">
+          <div class="search-input-group">
+            <i class="fas fa-search search-icon"></i>
+            <input 
+              type="text" 
+              id="city-input" 
+              class="search-input" 
+              placeholder="Enter city name..."
+              aria-label="City name"
+            >
+          </div>
+          <button id="search-btn" class="search-button">
+            <i class="fas fa-search"></i>
+            Search
+          </button>
+        </div>
+        <div class="location-info">
+          <button class="location-btn" id="location-btn">
+            <i class="fas fa-location-arrow"></i>
+            Use My Location
+          </button>
+        </div>
+      </section>
 
-  <!-- Current Weather -->
-  <section class="weather-card" id="weather-card">
-    <h2 id="city-name">City Name</h2>
-    <p id="temperature">-- °C</p>
-    <p id="condition">Condition</p>
-    <div class="extra">
-      <p>💧 Humidity: <span id="humidity">--%</span></p>
-      <p>🌬️ Wind: <span id="wind">-- km/h</span></p>
+      <!-- Current Weather -->
+      <section class="weather-section" id="weather-section">
+        <div class="weather-card" id="weather-card">
+          <div class="weather-header">
+            <h2 id="city-name" class="city-name">City Name</h2>
+            <p id="country" class="country">Country</p>
+          </div>
+          
+          <div class="weather-main">
+            <div class="temperature-container">
+              <span id="temperature" class="temperature">--</span>
+              <span class="temperature-unit">°C</span>
+            </div>
+            <div class="weather-icon-container">
+              <i id="weather-icon" class="weather-icon fas fa-cloud"></i>
+            </div>
+          </div>
+          
+          <p id="condition" class="condition">Weather Condition</p>
+          
+          <div class="weather-details">
+            <div class="detail-item">
+              <i class="fas fa-thermometer-half"></i>
+              <div class="detail-content">
+                <span class="detail-label">Feels Like</span>
+                <span id="feels-like" class="detail-value">--°C</span>
+              </div>
+            </div>
+            <div class="detail-item">
+              <i class="fas fa-tint"></i>
+              <div class="detail-content">
+                <span class="detail-label">Humidity</span>
+                <span id="humidity" class="detail-value">--%</span>
+              </div>
+            </div>
+            <div class="detail-item">
+              <i class="fas fa-wind"></i>
+              <div class="detail-content">
+                <span class="detail-label">Wind Speed</span>
+                <span id="wind" class="detail-value">-- km/h</span>
+              </div>
+            </div>
+            <div class="detail-item">
+              <i class="fas fa-eye"></i>
+              <div class="detail-content">
+                <span class="detail-label">Visibility</span>
+                <span id="visibility" class="detail-value">-- km</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Forecast -->
+      <section class="forecast-section" id="forecast-section">
+        <h3 class="forecast-title">5-Day Forecast</h3>
+        <div class="forecast-cards" id="forecast-cards">
+          <!-- Forecast cards will be inserted with JavaScript -->
+        </div>
+      </section>
+    </main>
+
+    <!-- Loading State -->
+    <div class="loading" id="loading">
+      <div class="loading-spinner"></div>
+      <p>Loading weather data...</p>
     </div>
-  </section>
 
-  <!-- Forecast -->
-  <section class="forecast" id="forecast">
-    <h3>5-Day Forecast</h3>
-    <div class="forecast-cards" id="forecast-cards">
-      <!-- Cards will be inserted with JS -->
+    <!-- Error State -->
+    <div class="error" id="error">
+      <i class="fas fa-exclamation-triangle"></i>
+      <p id="error-message">Something went wrong. Please try again.</p>
     </div>
-  </section>
+  </div>
 
   <script src="script.js"></script>
 </body>
